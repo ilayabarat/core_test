@@ -1,5 +1,7 @@
 import 'package:core_test/screens/fourthscreen.dart';
+import 'package:core_test/screens/secondscreen.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Thirdscr extends StatefulWidget {
   const Thirdscr({super.key});
@@ -9,10 +11,19 @@ class Thirdscr extends StatefulWidget {
 }
 
 class _ThirdscrState extends State<Thirdscr> {
-  int _selectedTabbar = 0;
+  // int _selectedTabbar = 0;
+  int attempt = 0;
+  int percentage = 0;
+
+  getLocalData() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    attempt = prefs.getInt("attempt") ?? 0;
+    percentage = prefs.getInt("percentage") ?? 0;
+  }
 
   @override
   Widget build(BuildContext context) {
+    getLocalData();
     return DefaultTabController(
         length: 4,
         initialIndex: 0,
@@ -22,7 +33,10 @@ class _ThirdscrState extends State<Thirdscr> {
               backgroundColor: Colors.white,
               leading: InkWell(
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const Secondscr())));
                 },
                 child: const Icon(
                   Icons.arrow_back,
@@ -30,7 +44,7 @@ class _ThirdscrState extends State<Thirdscr> {
                 ),
               ),
               title: const Text(
-                'Math',
+                'Classes',
                 style: TextStyle(color: Colors.black),
               ),
               bottom: const TabBar(
@@ -39,10 +53,10 @@ class _ThirdscrState extends State<Thirdscr> {
                 indicatorColor: Colors.green,
                 tabs: [
                   Tab(
-                    text: 'videos',
+                    text: 'Practice',
                   ),
                   Tab(
-                    text: 'Practice',
+                    text: 'video',
                   ),
                   Tab(
                     text: 'Notes',
@@ -54,13 +68,6 @@ class _ThirdscrState extends State<Thirdscr> {
               ),
             ),
             body: TabBarView(children: [
-              const Text(
-                'Comming soon',
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 32,
-                ),
-              ),
               ListView.separated(
                   separatorBuilder: ((context, index) {
                     return const SizedBox(
@@ -69,44 +76,33 @@ class _ThirdscrState extends State<Thirdscr> {
                   }),
                   shrinkWrap: true,
                   scrollDirection: Axis.vertical,
-                  //  controller: scrollControl,
                   physics: const BouncingScrollPhysics(),
-                  itemCount: 10,
+                  itemCount: 1,
                   itemBuilder: (BuildContext context, int index) {
                     return practiceQuestion(index);
-                    // Column(
-                    //   children: [
-                    //     InkWell(
-                    //         onTap: () {
-                    //           Navigator.push(
-                    //               context,
-                    //               MaterialPageRoute(
-                    //                   builder: ((context) =>
-                    //                       const Fourthscr())));
-                    //         },
-                    //         child: const Text('Knowing our numbers 1',
-                    //             style: TextStyle(color: Colors.green))),
-                    //   ],
-                    // );
                   }),
               const Text(
-                'Comming Late',
+                'Comming soon',
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 32,
                 ),
               ),
               const Text(
-                'Comming Late',
+                'Comming soon',
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 32,
                 ),
               ),
-            ])
-            // //
-
-            ));
+              const Text(
+                'Comming soon',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 32,
+                ),
+              ),
+            ])));
   }
 
   Widget practiceQuestion(index) {
@@ -122,28 +118,28 @@ class _ThirdscrState extends State<Thirdscr> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  indexValue.toString() + ".",
+                  "$indexValue.",
                   style: const TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 20,
                   ),
                 ),
-             const   SizedBox(
+                const SizedBox(
                   width: 20,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
-                      'Knowing our Numbers 1',
+                  children: [
+                    const Text(
+                      'Addition Questions',
                       style: TextStyle(
                         fontFamily: 'Poppins',
                         fontSize: 20,
                       ),
                     ),
                     Text(
-                      '0 Attempt Mastery 0%',
-                      style: TextStyle(
+                      '$attempt Attempt Mastery $percentage%',
+                      style: const TextStyle(
                         fontFamily: 'Poppins',
                         fontSize: 20,
                       ),
@@ -153,79 +149,4 @@ class _ThirdscrState extends State<Thirdscr> {
               ],
             )));
   }
-
-  // Center(
-  //   child: ElevatedButton(
-  //     child: const Text('ontab'),
-  //     onPressed: () {
-  //       // Navigator.push(context, MaterialPageRoute(builder: ((context) => const Seventhscr() )));
-  //       showModalBottomSheet(
-  //           context: context,
-  //           builder: (BuildContext context) {
-  //             return Container(
-  //               decoration: BoxDecoration(
-  //                 borderRadius: BorderRadius.circular(10),
-  //               ),
-  //               height: 350,
-  //               child: Padding(
-  //                 padding: const EdgeInsets.all(10),
-  //                 child: Center(
-  //                   child: Column(
-  //                     crossAxisAlignment: CrossAxisAlignment.center,
-  //                     children: [
-  //                       const SizedBox(height: 50),
-  //                       Container(
-  //                         height: 50,
-  //                         width: 60,
-  //                         decoration: BoxDecoration(
-  //                             borderRadius:
-  //                                 BorderRadius.circular(10),
-  //                             color: Colors.orange),
-  //                         child: const Icon(
-  //                           Icons.report_gmailerrorred,
-  //                           color: Colors.white,
-  //                         ),
-  //                       ),
-  //                       const SizedBox(
-  //                         height: 10,
-  //                       ),
-  //                       const Text(
-  //                         'Oops!',
-  //                         style: TextStyle(
-  //                             color: Colors.black, fontSize: 20),
-  //                       ),
-  //                       const SizedBox(
-  //                         height: 20,
-  //                       ),
-  //                       const Text(
-  //                         'You answered incorrect multiple times!',
-  //                         style: TextStyle(
-  //                             color: Colors.black, fontSize: 15),
-  //                       ),
-  //                       const SizedBox(
-  //                         height: 20,
-  //                       ),
-  //                       const Text(
-  //                         'please watch videos to help you perform better and \n                            came back again',
-  //                         style: TextStyle(
-  //                             color: Colors.black, fontSize: 15),
-  //                       ),
-  //                       const SizedBox(
-  //                         height: 20,
-  //                       ),
-  //                       ElevatedButton(
-  //                           onPressed: () {
-  //                             Navigator.pop(context);
-  //                           },
-  //                           child: const Text('Okay, got it'))
-  //                     ],
-  //                   ),
-  //                 ),
-  //               ),
-  //             );
-  //           });
-
-  //     },
-  //   ),
-  // )
 }

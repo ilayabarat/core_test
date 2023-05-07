@@ -41,9 +41,7 @@ class _FirstscrState extends State<Firstscr> {
               const SizedBox(
                 height: 10,
               ),
-
               TextFormField(
-                // controller: number,
                 style: const TextStyle(
                   color: Colors.black,
                   fontSize: 20,
@@ -86,14 +84,6 @@ class _FirstscrState extends State<Firstscr> {
                       borderRadius: BorderRadius.all(Radius.circular(6)),
                     )),
               ),
-              // TextFormField(
-              //   keyboardType: TextInputType.phone,
-              //   autocorrect: false,
-              //   decoration: InputDecoration(
-              //       errorBorder: OutlineInputBorder(
-              //           borderRadius: BorderRadius.circular(10),
-              //           borderSide: BorderSide.none)),
-              // ),
               const SizedBox(
                 height: 15,
               ),
@@ -135,44 +125,24 @@ class _FirstscrState extends State<Firstscr> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  // ElevatedButton(
-                  //     style: const ButtonStyle(),
-                  //     onPressed: (() {}),
-                  //     child: const Icon(
-                  //       Icons.apple_sharp,
-                  //       color: Colors.white,
-                  //     )),
-
-                  Container(
-                    height: 50,
-                    width: 120,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.red),
-                    child: const Icon(
-                      Icons.report_gmailerrorred,
-                      color: Colors.white,
-                    ),
-                  ),
-                  // ElevatedButton(
-                  //     style: const ButtonStyle(),
-                  //     onPressed: (() {}),
-                  //     child: const Icon(
-                  //       Icons.apple_sharp,
-                  //       color: Colors.white,
-                  //     )),
-
-                  Container(
-                    height: 50,
-                    width: 120,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Colors.black),
-                    child: const Icon(
-                      Icons.apple_rounded,
-                      color: Colors.white,
-                    ),
-                  ),
+                  ElevatedButton(
+                      style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.red)),
+                      onPressed: (() {}),
+                      child: const Icon(
+                        Icons.report_gmailerrorred,
+                        color: Colors.white,
+                      )),
+                  ElevatedButton(
+                      style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.black)),
+                      onPressed: (() {}),
+                      child: const Icon(
+                        Icons.apple_sharp,
+                        color: Colors.white,
+                      )),
                 ],
               )
             ],

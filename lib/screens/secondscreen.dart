@@ -1,4 +1,3 @@
-import 'package:core_test/screens/fourthscreen.dart';
 import 'package:core_test/screens/thirdscreen.dart';
 import 'package:flutter/material.dart';
 
@@ -77,8 +76,8 @@ class _SecondscrState extends State<Secondscr> {
           Icons.list,
           color: Colors.black,
         ),
-        actions: [
-          const Icon(
+        actions: const [
+          Icon(
             Icons.notifications,
             color: Colors.black,
           ),
@@ -105,225 +104,21 @@ class _SecondscrState extends State<Secondscr> {
                 const SizedBox(
                   height: 30,
                 ),
-                Container(
+                SizedBox(
                   height: 250,
                   child: GridView.builder(
                       itemCount: subjects.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          mainAxisSpacing: 5.0,
-                          crossAxisSpacing: 1.0,
-                          mainAxisExtent: 125,
-                          crossAxisCount: 4,
-                          childAspectRatio: 1),
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              mainAxisSpacing: 5.0,
+                              crossAxisSpacing: 1.0,
+                              mainAxisExtent: 125,
+                              crossAxisCount: 4,
+                              childAspectRatio: 1),
                       itemBuilder: (_, index) {
                         return subjectWidget(subjects[index]);
                       }),
                 ),
-                // Padding(
-                //   padding: const EdgeInsets.symmetric(horizontal: 10),
-                //   child: Column(
-                //     children: [
-                //       Row(
-                //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //         children: [
-                //           InkWell(
-                //             onTap: () {
-                //               Navigator.push(context, MaterialPageRoute(builder: ((context) => const Thirdscr())));
-                //             },
-                //             child: Column(
-                //               children: [
-                //                 Container(
-                //                   height: 30,
-                //                   width: 30,
-                //                   decoration: BoxDecoration(
-                //                       borderRadius: BorderRadius.circular(10),
-                //                       color: Colors.green),
-                //                   child: const Icon(
-                //                     Icons.calculate_outlined,
-                //                     color: Colors.white,
-                //                   ),
-                //                 ),
-                //                 const SizedBox(
-                //                   height: 10,
-                //                 ),
-                //                 const Text(
-                //                   'Math',
-                //                   style: TextStyle(color: Colors.black),
-                //                 )
-                //               ],
-                //             ),
-                //           ),
-
-                //            InkWell(
-                //             onTap: () {
-                //               Navigator.push(context, MaterialPageRoute(builder: ((context) => const Fourthscr())));
-                //             },
-                //         child:  Column(
-                //             children: [
-                //               Container(
-                //                 height: 30,
-                //                 width: 30,
-                //                 decoration: BoxDecoration(
-                //                     borderRadius: BorderRadius.circular(10),
-                //                     color: Colors.blue.shade200),
-                //                 child: const Icon(
-                //                   Icons.science,
-                //                   color: Colors.white,
-                //                 ),
-                //               ),
-                //               const SizedBox(
-                //                 height: 10,
-                //               ),
-                //               const Text(
-                //                 'Science',
-                //                 style: TextStyle(color: Colors.black),
-                //               )
-                //             ],
-                //           ),),
-                //           Column(
-                //             children: [
-                //               Container(
-                //                 height: 30,
-                //                 width: 30,
-                //                 decoration: BoxDecoration(
-                //                     borderRadius: BorderRadius.circular(10),
-                //                     color: Colors.amber),
-                //                 child: const Icon(
-                //                   Icons.history,
-                //                   color: Colors.yellowAccent,
-                //                 ),
-                //               ),
-                //               const SizedBox(
-                //                 height: 10,
-                //               ),
-                //               const Text(
-                //                 'History',
-                //                 style: TextStyle(color: Colors.black),
-                //               )
-                //             ],
-                //           ),
-                //           Column(
-                //             children: [
-                //               Container(
-                //                 height: 30,
-                //                 width: 30,
-                //                 decoration: BoxDecoration(
-                //                     borderRadius: BorderRadius.circular(10),
-                //                     color: Colors.red.shade300),
-                //                 child: const Icon(
-                //                   Icons.house_outlined,
-                //                   color: Colors.white,
-                //                 ),
-                //               ),
-                //               const SizedBox(
-                //                 height: 10,
-                //               ),
-                //               const Text(
-                //                 'Civics',
-                //                 style: TextStyle(color: Colors.black),
-                //               )
-                //             ],
-                //           ),
-                //         ],
-                //       ),
-
-                // const SizedBox(
-                //   height: 15,
-                // ),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //   children: [
-                //     Column(
-                //       children: [
-                //         Container(
-                //           height: 30,
-                //           width: 30,
-                //           decoration: BoxDecoration(
-                //               borderRadius: BorderRadius.circular(10),
-                //               color: Colors.yellow),
-                //           child:
-                //               Icon(Icons.flag, color: Colors.yellow.shade100),
-                //         ),
-                //         const SizedBox(
-                //           height: 10,
-                //         ),
-                //         const Text(
-                //           'Geo',
-                //           style: TextStyle(color: Colors.black),
-                //         )
-                //       ],
-                //     ),
-                //     Column(
-                //       children: [
-                //         Container(
-                //           height: 30,
-                //           width: 30,
-                //           decoration: BoxDecoration(
-                //               borderRadius: BorderRadius.circular(10),
-                //               color: Colors.orange.shade200),
-                //           child: const Icon(
-                //             Icons.menu_book_outlined,
-                //             color: Colors.white,
-                //           ),
-                //         ),
-                //         const SizedBox(
-                //           height: 10,
-                //         ),
-                //         const Text(
-                //           'Eng Lit',
-                //           style: TextStyle(color: Colors.black),
-                //         )
-                //       ],
-                //     ),
-                //     Column(
-                //       children: [
-                //         Container(
-                //           height: 30,
-                //           width: 30,
-                //           decoration: BoxDecoration(
-                //               borderRadius: BorderRadius.circular(10),
-                //               color: Colors.orange.shade300),
-                //           child: const Icon(
-                //             Icons.menu_book_outlined,
-                //             color: Colors.white,
-                //           ),
-                //         ),
-                //         const SizedBox(
-                //           height: 10,
-                //         ),
-                //         const Text(
-                //           'Grammar',
-                //           style: TextStyle(color: Colors.black),
-                //         )
-                //       ],
-                //     ),
-                //     Column(
-                //       children: [
-                //         Container(
-                //           height: 30,
-                //           width: 30,
-                //           decoration: BoxDecoration(
-                //               borderRadius: BorderRadius.circular(10),
-                //               color: Colors.grey.shade600),
-                //           child: const Icon(
-                //             Icons.computer_outlined,
-                //             color: Colors.black38,
-                //           ),
-                //         ),
-                //         const SizedBox(
-                //           height: 10,
-                //         ),
-                //         const Text(
-                //           'Eng Lit',
-                //           style: TextStyle(color: Colors.black),
-                //         )
-                //       ],
-                //     ),
-                //   ],
-                // ),
-                //   ],
-                //   ),
-                // ),
                 const SizedBox(
                   height: 20,
                 ),
@@ -612,25 +407,23 @@ class _SecondscrState extends State<Secondscr> {
                 height: 60,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  // color: data['color']
                 ),
                 child: Image.network(
-                  data['icon'], // Icons.calculate_outlined,
-                  // ,
+                  data['icon'],
                 ),
               ),
               const SizedBox(
                 height: 10,
               ),
               Center(
-                  child: Container(
+                  child: SizedBox(
                       width: 70,
                       child: Text(
                         data['name'],
                         textAlign: TextAlign.center,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 3,
-                        style: TextStyle(color: Colors.black),
+                        style: const TextStyle(color: Colors.black),
                       )))
             ],
           ),

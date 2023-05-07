@@ -78,13 +78,14 @@ class _SecondscrState extends State<Secondscr> {
           color: Colors.black,
         ),
         actions: [
-          
           const Icon(
-          Icons.notifications,
-          color: Colors.black,
-        ),
-        SizedBox(width: 10,)
-        ,],
+            Icons.notifications,
+            color: Colors.black,
+          ),
+          SizedBox(
+            width: 10,
+          ),
+        ],
         backgroundColor: Colors.white,
         elevation: 0,
       ),
@@ -621,17 +622,16 @@ class _SecondscrState extends State<Secondscr> {
               const SizedBox(
                 height: 10,
               ),
-              Center(child: 
-              Container(width:70,child:
-              
-              Text(
-                data['name'],
-                textAlign: TextAlign.center,
-                overflow: TextOverflow.ellipsis,
-                maxLines: 3,
-                style: TextStyle(color: Colors.black),
-              )
-              ))
+              Center(
+                  child: Container(
+                      width: 70,
+                      child: Text(
+                        data['name'],
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 3,
+                        style: TextStyle(color: Colors.black),
+                      )))
             ],
           ),
         ));
